@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class PizzaService implements IPizzaService {
@@ -20,9 +21,12 @@ public class PizzaService implements IPizzaService {
 
     @Override
     public Long upsertPizza(PizzaDto pizzaDto) {
-        return Objects.nonNull(pizzaDto.getId())
-                ? pizzaDao.update(pizzaDto).getId()
-                : pizzaDao.insert(pizzaDto).getId();
+        PizzaDto persistedPizza = Objects.nonNull(pizzaDto.getId())
+                ? pizzaDao.update(pizzaDto)
+                : pizzaDao.insert(pizzaDto);
+        return Optional.ofNullable(persistedPizza)
+                .map(PizzaDto::getId)
+                .orElse(0L);
     }
 
     @Override

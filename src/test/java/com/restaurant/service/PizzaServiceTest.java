@@ -65,6 +65,17 @@ class PizzaServiceTest {
     }
 
     @Test
+    void updatePizzaNotExistingTest() {
+        when(pizzaDao.update(pizzaWithId))
+                .thenReturn(null);
+
+        assertThat(pizzaService.upsertPizza(pizzaWithId))
+                .isNotNull()
+                .isEqualTo(0L);
+        verify(pizzaDao).update(pizzaWithId);
+    }
+
+    @Test
     void getPizzaTest() {
         when(pizzaDao.get(PIZZA_ID))
                 .thenReturn(pizzaWithId);
