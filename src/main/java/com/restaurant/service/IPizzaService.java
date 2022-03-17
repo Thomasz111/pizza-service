@@ -13,4 +13,6 @@ public interface IPizzaService {
 
     List<PizzaDto> list();
 
+    Boolean delete(Long pizzaId);
+
 }

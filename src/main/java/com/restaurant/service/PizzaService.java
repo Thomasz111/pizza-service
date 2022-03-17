@@ -34,4 +34,10 @@ public class PizzaService implements IPizzaService {
     public List<PizzaDto> list() {
         return pizzaDao.getAllPizzas();
     }
+
+    @Override
+    public Boolean delete(Long pizzaId) {
+        return Objects.nonNull(pizzaDao.delete(pizzaId));
+    }
+
 }

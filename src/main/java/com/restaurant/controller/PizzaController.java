@@ -32,5 +32,10 @@ public class PizzaController {
         return pizzaService.list();
     }
 
+    @DeleteMapping("/pizza/delete")
+    public Boolean deletePizza(@RequestParam Long pizzaId) {
+        return pizzaService.delete(pizzaId);
+    }
+
 
 }

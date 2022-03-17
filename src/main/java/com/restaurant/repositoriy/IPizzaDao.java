@@ -15,4 +15,6 @@ public interface IPizzaDao {
 
     List<PizzaDto> getAllPizzas();
 
+    PizzaDto delete(Long pizzaId);
+
 }

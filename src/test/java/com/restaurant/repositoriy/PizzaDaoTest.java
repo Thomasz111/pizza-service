@@ -55,4 +55,14 @@ class PizzaDaoTest {
                 .isNotNull()
                 .hasSize(3);
     }
+
+    @Test
+    void deleteTest() {
+        PizzaDto pizzaDto = pizzaDao.insert(pizzaWithoutId);
+
+        pizzaDao.delete(pizzaDto.getId());
+        assertThat(pizzaDao.get(pizzaDto.getId()))
+                .isNull();
+    }
+
 }

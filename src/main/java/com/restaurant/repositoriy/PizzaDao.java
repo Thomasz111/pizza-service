@@ -38,6 +38,11 @@ public class PizzaDao implements IPizzaDao {
         return new ArrayList<>(pizzaMap.values());
     }
 
+    @Override
+    public PizzaDto delete(Long pizzaId) {
+        return pizzaMap.remove(pizzaId);
+    }
+
     private Long getNextId() {
         return lastId += 1;
     }
