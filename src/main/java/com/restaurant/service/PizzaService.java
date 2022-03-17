@@ -23,4 +23,9 @@ public class PizzaService implements IPizzaService {
                 ? pizzaDao.update(pizzaDto).getId()
                 : pizzaDao.insert(pizzaDto).getId();
     }
+
+    @Override
+    public PizzaDto getPizza(Long pizzaId) {
+        return pizzaDao.get(pizzaId);
+    }
 }

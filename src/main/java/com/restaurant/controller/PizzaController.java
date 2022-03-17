@@ -3,9 +3,7 @@ package com.restaurant.controller;
 import com.restaurant.model.PizzaDto;
 import com.restaurant.service.IPizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PizzaController {
@@ -20,6 +18,11 @@ public class PizzaController {
     @PostMapping("/pizza/upsert")
     public Long upsertPizza(@RequestBody PizzaDto pizzaDto) {
         return pizzaService.upsertPizza(pizzaDto);
+    }
+
+    @GetMapping("/pizza/get")
+    public PizzaDto getPizza(@RequestParam Long pizzaId) {
+        return pizzaService.getPizza(pizzaId);
     }
 
 }

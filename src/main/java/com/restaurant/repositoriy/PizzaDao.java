@@ -26,8 +26,12 @@ public class PizzaDao implements IPizzaDao {
         return pizzaDto;
     }
 
+    @Override
+    public PizzaDto get(Long pizzaId) {
+        return pizzaMap.get(pizzaId);
+    }
+
     private Long getNextId() {
-        lastId += 1;
-        return lastId;
+        return lastId += 1;
     }
 }

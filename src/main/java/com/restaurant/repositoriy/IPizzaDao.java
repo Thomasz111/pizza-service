@@ -9,4 +9,6 @@ public interface IPizzaDao {
 
     PizzaDto insert(PizzaDto pizzaDto);
 
+    PizzaDto get(Long pizzaId);
+
 }
