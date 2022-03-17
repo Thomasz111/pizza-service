@@ -3,7 +3,9 @@ package com.restaurant.repositoriy;
 import com.restaurant.model.PizzaDto;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -29,6 +31,11 @@ public class PizzaDao implements IPizzaDao {
     @Override
     public PizzaDto get(Long pizzaId) {
         return pizzaMap.get(pizzaId);
+    }
+
+    @Override
+    public List<PizzaDto> getAllPizzas() {
+        return new ArrayList<>(pizzaMap.values());
     }
 
     private Long getNextId() {

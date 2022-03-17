@@ -42,7 +42,7 @@ class PizzaServiceTest {
     void insertPizzaTest() {
         when(pizzaDao.insert(pizzaWithoutId))
                 .thenReturn(pizzaWithId);
-;
+
         assertThat(pizzaService.upsertPizza(pizzaWithoutId))
                 .isNotNull();
         verify(pizzaDao).insert(pizzaWithoutId);
@@ -59,9 +59,8 @@ class PizzaServiceTest {
         verify(pizzaDao).update(pizzaWithId);
     }
 
-
     @Test
-    void getPizza() {
+    void getPizzaTest() {
         when(pizzaDao.get(PIZZA_ID))
                 .thenReturn(pizzaWithId);
 

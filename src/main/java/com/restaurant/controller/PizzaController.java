@@ -5,6 +5,8 @@ import com.restaurant.service.IPizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PizzaController {
 
@@ -24,5 +26,11 @@ public class PizzaController {
     public PizzaDto getPizza(@RequestParam Long pizzaId) {
         return pizzaService.getPizza(pizzaId);
     }
+
+    @GetMapping("/pizza/list")
+    public List<PizzaDto> getPizza() {
+        return pizzaService.list();
+    }
+
 
 }
