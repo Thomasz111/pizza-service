@@ -98,7 +98,7 @@ class PizzaServiceTest {
     private static Stream<Arguments> deleteTestParams() {
         return Stream.of(
             Arguments.of(PizzaDtoBuilder.create().build(), true),
-            Arguments.of((Object) null, false)
+            Arguments.of(null, false)
         );
     }
 
